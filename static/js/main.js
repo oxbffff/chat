@@ -17,7 +17,7 @@ function sendText() {
     messageInput.value = "";
 
     message = prepareMessageObject("text", text)
-
+    
     updateMessageContainer(message);
 
     socket.send(JSON.stringify(message))
@@ -25,7 +25,7 @@ function sendText() {
 
 function sendImg(src) {
     message = prepareMessageObject("img", src)
-
+    
     updateMessageContainer(message);
 
     socket.send(JSON.stringify(message))
@@ -69,7 +69,7 @@ function updateMessageContainer(message) {
             "../static/images/profile_pic/photo_2021-03-12 00.39.30.jpeg" :
             "../static/images/profile_pic/photo_2021-03-13 14.44.40.jpeg"
     )
-
+    
     essenceOfMessage = ("img" in message ? `<img class="messagePic" src=${message.img}>` : message.text)
 
     messageContainer.innerHTML += `<div class="${kindOfMessage}">
